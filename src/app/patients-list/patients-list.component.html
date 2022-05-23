@@ -1,0 +1,73 @@
+<div class="container py-5">
+  <!-- Enter a Patient ends -->
+  <div class="row">
+    <div class="col-xs-12 col-md-8 mx-auto">
+      <form (ngSubmit)="showPatientInfo()" class="p-4 rounded-3">
+        <h2 class="text-center mb-5">Find a Patient</h2>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-lg-6 col-xl-8">
+            <div class="mb-3">
+              <input
+                type="number"
+                [(ngModel)]="pSelected"
+                class="form-control"
+                id="selectPatient"
+                name="selectPatient"
+                placeholder="Enter Patient Id"
+              />
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-6 col-lg-6 col-xl-4">
+            <button type="submit" class="btn btn-primary w-100">
+              Show Patient Information
+            </button>
+          </div>
+        </div>
+      </form>
+      <!-- Enter a Patient ends -->
+
+      <!-- Show Patient info starts -->
+
+      <div *ngIf="isNotFound" class="m-4 alert alert-danger" role="alert">
+        Patient with selected id does not exists!
+      </div>
+
+      <ul *ngIf="showPatient" class="list-group p-4">
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Name</div>
+            {{ filteredPatients.name }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Age</div>
+            {{ filteredPatients.age }}
+          </div>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Visted Doctor Name</div>
+            {{ filteredPatients.visitedDr }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Date of Visiting</div>
+            {{ filteredPatients.dateOfVisit }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Pescription</div>
+            {{ filteredPatients.pescription }}
+          </div>
+        </li>
+      </ul>
+
+      <!-- Show Patient info ends -->
+    </div>
+  </div>
+</div>

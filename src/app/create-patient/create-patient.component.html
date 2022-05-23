@@ -1,0 +1,61 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-xs-12 col-md-5 mx-auto">
+      <form (ngSubmit)="onSubmit()" class="border p-4 rounded-3">
+        <h2 class="text-center mb-5">Add New Patient</h2>
+
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label">Name:</label>
+          <input
+            [(ngModel)]="patient.name"
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter patient name"
+            name="name"
+          />
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="age" class="form-label">Age:</label>
+          <input
+            [(ngModel)]="patient.age"
+            type="number"
+            class="form-control"
+            id="age"
+            placeholder="Enter patient name"
+            name="age"
+          />
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="selectDr" class="form-label">Select Doctor:</label>
+          <select
+            [(ngModel)]="selectedDr"
+            class="form-control"
+            id="selectDr"
+            name="selectDr"
+          >
+            <option [ngValue]="0" selected disabled>Select Doctor</option>
+            <option *ngFor="let dr of doctors" [value]="dr.id">
+              {{ dr.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3 mt-3">
+          <label for="date" class="form-label">Visiting Date:</label>
+          <input
+            [(ngModel)]="patient.dateOfVisit"
+            type="date"
+            class="form-control"
+            id="date"
+            placeholder="Enter patient name"
+            name="date"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Add Patient</button>
+      </form>
+    </div>
+  </div>
+</div>

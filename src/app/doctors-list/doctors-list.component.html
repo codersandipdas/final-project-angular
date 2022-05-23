@@ -1,0 +1,94 @@
+<div class="container py-5">
+  <!-- Select a doctor ends -->
+  <div class="row">
+    <div class="col-xs-12 col-md-8 mx-auto">
+      <form (ngSubmit)="showDrInfo()" class="p-4 rounded-3">
+        <h2 class="text-center mb-5">Find a Doctor</h2>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-lg-6 col-xl-8">
+            <div class="mb-3">
+              <select
+                [(ngModel)]="drSelected"
+                class="form-control"
+                id="selectDr"
+                name="selectDr"
+              >
+                <option [ngValue]="0" selected disabled>Select Doctor</option>
+                <option *ngFor="let dr of doctors" [value]="dr.id">
+                  {{ dr.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-md-6 col-lg-6 col-xl-4">
+            <button type="submit" class="btn btn-primary w-100">
+              Show Doctor Information
+            </button>
+          </div>
+        </div>
+      </form>
+      <!-- Select a doctor ends -->
+
+      <!-- Show doctor info starts -->
+
+      <ul *ngFor="let dr of filteredDr" class="list-group p-4">
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Name</div>
+            {{ dr.name }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Age</div>
+            {{ dr.age }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Gender</div>
+            {{ dr.gender }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Speciality</div>
+            {{ dr.specialist }}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Total patient attented</div>
+            {{ dr.patientCount }}
+          </div>
+        </li>
+      </ul>
+
+      <!-- Show doctor info ends -->
+    </div>
+  </div>
+
+  <!-- Show doctor info starts 
+  <table class="table table-striped mt-5">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Speciality</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of doctors">
+        <td>{{ doctor.name }}</td>
+        <td>{{ doctor.age }}</td>
+        <td>{{ doctor.gender }}</td>
+        <td>{{ doctor.specialist }}</td>
+        <td>Delete</td>
+      </tr>
+    </tbody>
+  </table>
+   Show doctor info ends -->
+</div>

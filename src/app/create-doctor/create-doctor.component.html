@@ -1,0 +1,61 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-xs-12 col-md-5 mx-auto">
+      <form (ngSubmit)="onSubmit()" class="border p-4 rounded-3">
+        <h2 class="text-center mb-5">Add New Doctor</h2>
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label">Name:</label>
+          <input
+            [(ngModel)]="doctor.name"
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter doctor name"
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Age:</label>
+          <input
+            [(ngModel)]="doctor.age"
+            type="number"
+            class="form-control"
+            id="age"
+            placeholder="Enter doctor age"
+            name="age"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="gender" class="form-label">Gender:</label>
+          <select
+            [(ngModel)]="gSelected"
+            class="form-control"
+            id="gender"
+            name="gender"
+          >
+            <option disabled>Select Country</option>
+            <option *ngFor="let g of gender" [value]="g.gName">
+              {{ g.gName }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="speciality" class="form-label">Speciality:</label>
+          <select
+            [(ngModel)]="spclSelected"
+            class="form-control"
+            id="speciality"
+            name="speciality"
+          >
+            <option disabled>Select Country</option>
+            <option *ngFor="let spcl of speciality" [value]="spcl.dSpeciality">
+              {{ spcl.dSpeciality }}
+            </option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Add Doctor</button>
+      </form>
+    </div>
+  </div>
+</div>
