@@ -1,4 +1,4 @@
-# HospitalManagement
+# Final Project Details
 
 This project was created with love by "Sandip Das" generated with Angular version 13.3.5.
 
